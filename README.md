@@ -1,41 +1,40 @@
------BESTMAZE
-# 🧠 Yapay Zeka Ajanı ile Görsel Yol Bulma (C# .NET Framework)
+# BestMaze - Visual Pathfinding Agent in C# (.NET Framework)
 
-Bu proje, C# ve Windows Forms kullanılarak geliştirilmiş, koşul tabanlı bir yapay zeka ajanının 10x10'luk görsel bir harita üzerinde yol bulma algoritmasını simüle ettiği bir çalışmadır. Proje, kullanıcı tarafından tanımlanan başlangıç, bitiş ve engel noktalarına göre hareket eden bir ajanın, belirli kurallara göre çıkışı bulmasını sağlar.
+BestMaze is a project developed in C# using Windows Forms that simulates a rule-based artificial intelligence agent navigating a user-defined maze. The agent operates on a 10x10 grid of PictureBoxes representing the environment, where the user sets the start, end, and path by clicking and using radio buttons. Once started, the agent (represented visually as a mouse) attempts to reach the goal using conditional logic and memory of its previous decisions.
 
-## 🚀 Özellikler
+## Features
 
-- Görsel arayüz: Windows Forms üzerinde 10x10 PictureBox dizisiyle harita çizimi
-- Kullanıcı etkileşimi: Tıklanarak başlangıç, bitiş, yol ve engel tanımlaması
-- Koşullu karar veren ajan (fare görselli): 
-  - Sağ → Yukarı → Sol → Aşağı şeklinde yön önceliği
-  - Çıkmaz durumunda geri çekilme ve yol silme
-  - Yol ayrımlarında hafızaya "checkpoint" alma
-  - Geriye ışınlanarak alternatif yolları deneme
-- Hareket adımı sayısına göre puanlama
-- Dinamik harita, rastgele kullanıcı girişiyle oluşturulabilir
-- `Timer` kullanımı ile adım adım ajan simülasyonu
+- Visual 10x10 grid created using PictureBoxes
+- User interaction to define start, end, path, and obstacles
+- Agent moves based on a fixed direction priority: Right → Up → Left → Down
+- If stuck, the agent:
+  - Deletes dead-end paths
+  - Returns to previously saved checkpoints
+  - Continues exploring until the goal is reached
+- Keeps track of steps taken as a form of scoring
+- Timer-driven movement simulates real-time decision making
+- Designed without any machine learning — purely logic-driven
 
-## 🧠 Kullanılan Yapay Zeka Yaklaşımları
+## AI Concepts Used
 
-Bu projede doğrudan makine öğrenmesi teknikleri kullanılmasa da, klasik yapay zekanın temel yaklaşımlarından bazıları uygulanmıştır:
+While no machine learning algorithms are used, several classical AI concepts are present:
 
-- **Kural Tabanlı Sistemler**: Ajanın hareketi tamamen "if-else" koşullarıyla modellenmiştir.
-- **Deterministik Ajan**: Ajan, bulunduğu duruma göre her zaman aynı eylemi yapar.
-- **Arama Tabanlı Problem Çözümü (Exploration)**: Ajan, hedefe ulaşmak için sistematik bir arama yapar.
-- **Geri İzleme (Backtracking)**: Çıkmaza girildiğinde önceki duruma dönülerek alternatif yollar denenir.
-- **Hafıza Kullanan Ajan**: Checkpoint özelliğiyle geçmişteki karar noktaları hatırlanır.
-- **Heuristik Olmayan Yol Bulma**: Sabit kurallara dayalı, bilgiye dayalı olmayan basit arama stratejileri
+- **Rule-Based System**: Movement decisions are implemented with `if-else` logic
+- **Deterministic Agent**: The agent always behaves the same in the same situation
+- **Search-Based Problem Solving**: Systematic trial of directions to find a path
+- **Backtracking**: Retreats from dead ends and tries alternative paths
+- **Memory-Enabled Agent**: Uses "checkpoint" memory to revisit decision points
+- **Non-Heuristic Search**: No estimation or cost function is used; relies only on rules
 
-## 🛠️ Teknolojiler
+## Technologies
 
 - C# (.NET Framework 4.5)
 - Windows Forms
-- Timer sınıfı ile zaman kontrollü döngü
-- GDI+ ile temel görselleştirme (fare ikonu, yol boyama vb.)
+- `Timer` class for loop-based movement
+- Basic GDI+ visuals (mouse icon, path coloring)
 
-## 🖥️ Kurulum
+## Setup
 
-1. Proje klasörünü indirin veya klonlayın:
+1. Clone the repository:
    ```bash
    git clone https://github.com/turkuazsubat/bestmaze.git
